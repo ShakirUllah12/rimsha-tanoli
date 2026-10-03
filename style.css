@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Rimsha Tanoli - Portfolio Custom Styles
+   Advanced Features: Print Styling, Interactive Simulator, Modals & Glassmorphism
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Skill Tag Pill Styles */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .skill-tag {
+  background-color: #1e293b;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+.skill-tag:hover {
+  border-color: #14b8a6;
+  color: #0d9488;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 8px -2px rgba(13, 148, 136, 0.15);
+}
+
+.dark .skill-tag:hover {
+  border-color: #2dd4bf;
+  color: #2dd4bf;
+}
+
+/* Project Filter Button Active State */
+.filter-btn {
+  transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #0d9488, #4f46e5);
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+}
+
+/* Card Subtle Floating Hover Effect */
+.project-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(20, 184, 166, 0.5);
+}
+
+/* FAQ Accordion Styling */
+.faq-item {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item:hover {
+  border-color: #14b8a6;
+}
+
+.faq-item.active i {
+  transform: rotate(180deg);
+}
+
+/* Glassmorphic Navbar Backdrop blur fallback */
+@supports not (backdrop-filter: blur(12px)) {
+  header {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+  }
+  .dark header {
+    background-color: rgba(11, 15, 25, 0.98) !important;
+  }
+}
+
+/* Print Styles for Direct Resume Printing */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  header, footer, aside, #hero, #about, #specialization, #projects, #experience, #skills, #faq, #contact, #project-modal, #theme-toggle {
+    display: none !important;
+  }
+  #resume-modal {
+    position: static !important;
+    display: block !important;
+    background: transparent !important;
+    padding: 0 !important;
+    backdrop-filter: none !important;
+  }
+  #resume-modal > div {
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  #resume-modal button, #resume-modal a {
+    display: none !important;
+  }
+}
